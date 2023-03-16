@@ -6,11 +6,10 @@
 */
 int main(void)
 {
-printf("sizeof(short) = %d\n", (int)sizeof(short));
-printf("sizeof(int) = %d\n", (int)sizeof(int));
+printf("sizeof(char) = %d\n", (int)sizeof(char));
 printf("sizeof(long) = %d\n", (int)sizeof(long));
 printf("sizeof(float) = %d\n", (int)sizeof(float));
-printf("sizeof(double) = %d\n", (int)sizeof(double));
-printf("sizeof(long double) = %d\n", (int)sizeof(long double));
+printf("sizeof(long long int) = %d\n", (int)sizeof(long long int));
+printf("sizeof(long int) = %d\n", (int)sizeof(long int));
 return (0);
 }
