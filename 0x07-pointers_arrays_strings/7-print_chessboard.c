@@ -1,28 +1,18 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_diagsums - prints the sum of the two diagonals.
- * @a: the 2d array
- * @size: the size of the array
+ * print_chessboard - prints the chessboard.
+ * @a: 2D array
+ * Return: void
  */
-
-void print_diagsums(int *a, int size)
+void print_chessboard(char (*a)[8])
 {
-	int i;
-	unsigned int sum_1;
-	unsigned int sum_2;
+	int i, j;
 
-	i = 0;
-	sum_1 = 0;
-	sum_2 = 0;
-
-	while (i < size)
+	for (i = 0; i < 8; i++)
 	{
-		sum_1 += a[(size * i) + i];
-		sum_2 += a[(size * (i + 1)) - (i + 1)];
-		i++;
+		for (j = 0; j < 8; j++)
+			_putchar(a[i][j]);
+		_putchar('\n');
 	}
-	printf("%d, %d\n", sum_1, sum_2);
 }
-
