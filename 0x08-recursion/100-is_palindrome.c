@@ -1,35 +1,53 @@
 #include "main.h"
 
 /**
- * check_if_divisible - checks if n is prime if n is not divisible by i
- * @n: the number to check if prime
- * @i: odd number to check if n is divisible by
- * Return: 1 if prime, 0 otherwise
+ * str_len - computes the length of the string
+ * @s: the string
+ * Return: returns the length of s
  */
 
-int check_if_divisible(int n, int i)
+int str_len(char *s)
 {
-	if (i * i > n)
-		return (1);
-	if (n % i == 0)
+	if (!*s)
 		return (0);
-	return (check_if_divisible(n, i + 2));
+	else
+		return (1 + str_len(s + 1));
 }
 
 /**
- * is_prime_number - check if n is prime
- * @n: number to check if prime
- * Return: 1 if prime, 0 otherwise.
+ * check_if_palindrome - check if string is palindrome
+ * @s: the string to be checked
+ * @i: index starting from the beginning of s
+ * @j: index starting from the end
+ * Return: returns 1 if s is palindrome, 0 otherwise.
  */
 
-int is_prime_number(int n)
+int check_if_palindrome(char *s, int i, int j)
 {
-	if (n < 2)
+	if (s[i] != s[j])
 		return (0);
-	else if (n == 2)
+	else if (i == j - 1)
 		return (1);
-	else if (n % 2 == 0)
-		return (0);
-	return (check_if_divisible(n, 3));
+	else if (i == j)
+		return (1);
+	return (check_if_palindrome(s, i + 1, j - 1));
+}
+
+/**
+ * is_palindrome - check if string is palindrome
+ * @s: the string to be checked
+ * Return: returns 1 if s is palindrome, 0 otherwise.
+ */
+
+int is_palindrome(char *s)
+{
+	int len;
+
+	len = str_len(s) - 1;
+	if (len == 0)
+		return (1);
+	else if (len == 1)
+		return (1);
+	return (check_if_palindrome(s, 0, len));
 }
 
